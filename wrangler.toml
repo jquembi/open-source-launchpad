@@ -1,0 +1,16 @@
+name = "ponte-solidaria"
+main = "worker/index.js"
+compatibility_date = "2026-09-01"
+
+# Depois de executar: npx wrangler d1 create ponte-solidaria-db
+# configura database_id abaixo com o identificador recebido.
+[[d1_databases]]
+binding = "DB"
+database_name = "ponte-solidaria-db"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+
+[assets]
+directory = "./"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+exclude = ["worker/*", "*.md", "*.toml", "*.yaml", "Dockerfile", ".github/*", "LICENSE"]
